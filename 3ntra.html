@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>قصائد عنترة بن شداد</title>
   <meta name="description" content="مجموعة من أشهر قصائد الفارس الشاعر عنترة بن شداد">
+  
+  <!-- استيراد خط Cairo Bold للعناوين فقط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg-color: #ffffff;
@@ -37,10 +41,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* ✅ كل النصوص تستخدم Arial (عادي، مش عريض) */
     body {
+      font-family: Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
@@ -61,19 +66,31 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
 
+    .menu-toggle {
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      color: var(--header-text);
+      cursor: pointer;
+      margin-left: auto; /* يدفعه لأقصى اليمين */
+    }
+
     .logo {
-      margin-right: auto; /* هذا يدفع الزر إلى اليمين */
+      margin: 0 auto;
+      text-align: center;
     }
 
     .logo h1 {
+      font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
       font-size: 1.4rem;
-      font-weight: 600;
     }
 
     .controls {
       display: flex;
       gap: 0.8rem;
       align-items: center;
+      margin-right: auto; /* يدفع الأزرار لأقصى اليسار */
     }
 
     button {
@@ -85,20 +102,14 @@
       cursor: pointer;
       font-size: 0.9rem;
       transition: all 0.2s;
+      font-family: Arial, sans-serif;
     }
 
     button:hover {
       background: rgba(255,255,255,0.25);
     }
 
-    .menu-toggle {
-      font-size: 1.6rem;
-      background: none;
-      border: none;
-      color: var(--header-text);
-      cursor: pointer;
-    }
-
+    /* باقي الأنماط (الكاردات، القائمة، إلخ) تبقى كما هي */
     .sidebar {
       position: fixed;
       top: 0;
@@ -124,6 +135,8 @@
       padding-bottom: 0.6rem;
       border-bottom: 1px solid var(--link-color);
       color: var(--link-color);
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
     }
 
     .sidebar ul {
@@ -145,6 +158,7 @@
       transition: all 0.2s;
       border: 1px solid var(--card-border);
       text-align: right;
+      font-family: Arial, sans-serif;
     }
 
     .sidebar a:hover {
@@ -165,6 +179,8 @@
     }
 
     .poem-title {
+      font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
       font-size: 1.5rem;
       margin-bottom: 1.2rem;
       color: var(--link-color);
@@ -173,6 +189,7 @@
     }
 
     .poem-text {
+      font-family: Arial, sans-serif; /* ✅ نص القصيدة بـ Arial */
       font-size: var(--font-size);
       white-space: pre-line;
       text-align: right;
@@ -231,6 +248,7 @@
 <body>
 
   <header>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
     <div class="logo">
       <h1>قصائد عنترة بن شداد</h1>
     </div>
@@ -238,7 +256,6 @@
       <button id="font-decrease">A−</button>
       <button id="font-increase">A+</button>
       <button id="theme-toggle">🌙</button>
-      <button class="menu-toggle" id="menu-toggle">☰</button>
     </div>
   </header>
 
